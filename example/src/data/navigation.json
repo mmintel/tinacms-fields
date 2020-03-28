@@ -1,6 +1,10 @@
 {
   "main": [
     {
+      "title": "New Menu Item",
+      "internal": true
+    },
+    {
       "title": "Home",
       "internal": true,
       "slug": "/",
