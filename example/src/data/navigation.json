@@ -3,7 +3,10 @@
     {
       "title": "Home",
       "internal": true,
-      "target": "/"
+      "slug": "/",
+      "rawJson": {
+        "slug": "/"
+      }
     },
     {
       "title": "New Menu Item",
@@ -12,7 +15,7 @@
     {
       "title": "Blog",
       "internal": false,
-      "target": "https://mintel.me"
+      "link": "https://mintel.me"
     }
   ],
   "__gatsby_resolved": {
