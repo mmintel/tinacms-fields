@@ -1,9 +1,11 @@
 # tinacms-condition-field [![Known Vulnerabilities](https://snyk.io/test/github/mmintel/tinacms-condition-field/badge.svg?targetFile=packages/tinacms-condition-field/package.json)](https://snyk.io/test/github/mmintel/tinacms-condition-field?targetFile=packages/tinacms-condition-field/package.json)
+
+> Adds a condition field to TinaCMS
+
 ## Article
 If you want to read more in depth walk through to how this condition field works, checkout my article here:
 https://mintel.me/lets-create-a-conditional-field-for-tinacms/
 
-> Adds a condition field to TinaCMS
 
 ## Preview
 ### Markdown
