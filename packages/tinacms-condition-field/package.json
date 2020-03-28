@@ -1,0 +1,35 @@
+{
+  "name": "tinacms-condition-field",
+  "version": "0.0.0",
+  "description": "Adds a condition field to TinaCMS",
+  "author": "mmintel",
+  "license": "MIT",
+  "repository": "mmintel/tinacms-condition-field",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "test": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "build": "rollup -c",
+    "develop": "rollup -c -w",
+    "dev": "npm run develop"
+  },
+  "dependencies": {
+    "styled-components": "^5.0.1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.5.4",
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "@tinacms/form-builder": "^0.3.0",
+    "tinacms": "^0.17.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

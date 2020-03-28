@@ -1,0 +1,21 @@
+{
+  "main": [
+    {
+      "title": "Home",
+      "internal": true,
+      "target": "/"
+    },
+    {
+      "title": "New Menu Item",
+      "internal": true
+    },
+    {
+      "title": "Blog",
+      "internal": false,
+      "target": "https://mintel.me"
+    }
+  ],
+  "__gatsby_resolved": {
+    "fileRelativePath": "/src/data/navigation.json"
+  }
+}

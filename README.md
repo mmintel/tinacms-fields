@@ -4,27 +4,44 @@
 
 [![NPM](https://img.shields.io/npm/v/tinacms-condition-field.svg)](https://www.npmjs.com/package/tinacms-condition-field) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Article
+If you want to read more in depth walk through to how this condition field works, checkout my article here:
+https://mintel.me/lets-create-a-conditional-field-for-tinacms/
+
 ## Install
 
 ```bash
 npm install --save tinacms-condition-field
 ```
 
-## Usage
+or
 
+```bash
+yarn add tinacms-condition-field
+```
+
+### Manual
 ```jsx
-import React, { Component } from 'react'
+import TinaCMSConditionField from 'tinacms-condition-field'
 
-import MyComponent from 'tinacms-condition-field'
+const conditionField = new TinaCMSConditionField(tinacms);
 
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
+conditionField.install();
+```
+
+### with Gatsby
+add to `gatsby-browser.js`
+```jsx
+import TinaCMSConditionField from 'tinacms-condition-field'
+
+export const onClientEntry = () => {
+  const conditionField = new TinaCMSConditionField(window.tinacms);
+  conditionField.install();
 }
 ```
+
+## Usage
+
 
 ## License
 
