@@ -1,4 +1,10 @@
 const path = require(`path`)
+const Prism = require('prismjs')
+
+require('prismjs/components/prism-bash')
+require('prismjs/components/prism-javascript')
+require('prismjs/components/prism-rest')
+require('prismjs/components/prism-jsx')
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -55,7 +61,12 @@ exports.onCreateWebpackConfig = ({
               loader: 'html-loader'
             },
             {
-              loader: 'markdown-loader'
+              loader: 'markdown-loader',
+              options: {
+                highlight: function (code, lang) {
+                  return Prism.highlight(code, Prism.languages[lang], lang);
+                }
+              }
             }
           ]
         }

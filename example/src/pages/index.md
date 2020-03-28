@@ -1,7 +1,7 @@
 ---
 title: tinacms-condition-field
 slug: /
-useReadme: false
+useReadme: true
 test: It works!!
 ---
 # tinacms-condition-field

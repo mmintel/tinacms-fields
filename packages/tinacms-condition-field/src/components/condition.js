@@ -9,20 +9,20 @@ const Condition = ({ input, field, form }) => {
 
   if (nestedFields) {
     conditionalFields = nestedFields.map(f => {
-      let fieldName = f.name
+      let name = f.name
 
-
-      if (fieldName.includes('frontmatter')) {
-        fieldName = fieldName.replace('frontmatter', 'rawFrontmatter');
+      if (name.includes('frontmatter')) {
+        name = name.replace('frontmatter', 'rawFrontmatter');
       }
 
-      // const fieldPath = field.name.split('.').slice(0, -1)
-      // const name = fieldPath.concat(fieldName).join('.')
-      // console.log(name);
+      if (field.name.includes('rawJson')) {
+        const fieldPath = field.name.split('.').slice(0, -1)
+        name = fieldPath.concat(name).join('.')
+      }
 
       return {
         ...f,
-        name: fieldName
+        name
       }
     })
   }

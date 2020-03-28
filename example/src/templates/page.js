@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Link from 'gatsby-link'
 import { withPlugin } from 'tinacms'
 import { useGlobalJsonForm } from 'gatsby-tinacms-json'
 import { useLocalRemarkForm, RemarkCreatorPlugin } from 'gatsby-tinacms-remark'
@@ -21,7 +22,20 @@ const Page = ({ data }) => {
         { page.frontmatter.useReadme ? (
           <div dangerouslySetInnerHTML={{ __html: README }} />
         ) : (
-          <div dangerouslySetInnerHTML={{ __html: page.html }} />
+          <div>
+            <ul>
+              { navigation.main.map(item => (
+                <li>
+                  { item.internal ?  (
+                    <Link to={item.target}>{ item.title }</Link>
+                  ) : (
+                    <a href={item.target || '/'} target="_blank">{ item.title }</a>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <div dangerouslySetInnerHTML={{ __html: page.html }} />
+          </div>
         )}
       </Center>
     </Base>
@@ -30,6 +44,9 @@ const Page = ({ data }) => {
 
 Page.propTypes = {
   data: PropTypes.shape({
+    navigation: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string
+    })),
     page: PropTypes.shape({
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
@@ -123,34 +140,29 @@ const editNavigationForm = {
           component: "text"
         },
         {
-          label: "Target",
-          name: "target",
-          component: "text"
+          label: 'Internal',
+          name: 'internal',
+          description: 'Set to false if you want link to another website',
+          component: "condition",
+          trigger: {
+            component: "toggle"
+          },
+          fields: (internal) => {
+            return internal ? [
+              {
+                label: "Slug",
+                name: "slug",
+                component: "text"
+              }
+            ] : [
+              {
+                label: "Link",
+                name: "link",
+                component: "text",
+              }
+            ]
+          }
         },
-        // {
-        //   label: 'Internal',
-        //   name: 'internal',
-        //   description: 'Set to false if you want link to another website',
-        //   component: "condition",
-        //   trigger: {
-        //     component: "toggle"
-        //   },
-        //   fields: (internal) => {
-        //     return internal ? [
-        //       {
-        //         label: "Slug",
-        //         name: "slug",
-        //         component: "text"
-        //       }
-        //     ] : [
-        //       {
-        //         label: "Link",
-        //         name: "link",
-        //         component: "text",
-        //       }
-        //     ]
-        //   }
-        // },
       ],
     },
   ],
@@ -180,7 +192,9 @@ export const pageQuery = graphql`
     ) {
       main {
         title
-        target
+        slug
+        link
+        internal
       }
 
       rawJson
