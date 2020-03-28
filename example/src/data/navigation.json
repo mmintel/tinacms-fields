@@ -9,10 +9,6 @@
       }
     },
     {
-      "title": "New Menu Item",
-      "internal": true
-    },
-    {
       "title": "Blog",
       "internal": false,
       "link": "https://mintel.me"
