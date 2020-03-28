@@ -2,7 +2,7 @@
 title: tinacms-condition-field
 slug: /
 useReadme: false
-test: It works!!
+test: It works!! Now
 frontmatter:
   test: some test
 body: boddyyy
