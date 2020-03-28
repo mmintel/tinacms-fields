@@ -4,7 +4,7 @@ slug: /
 useReadme: false
 body: a
 frontmatter:
-  test: It works!
+  test: It works!!
 ---
 # tinacms-condition-field
 To try out, open the sidebar and toggle the *use readme* setting. All unneccessary fields will be hidden and that's exactly what this field does. It toggles fields based on a condition.
