@@ -1,109 +1,102 @@
-# tinacms-condition-field [![Known Vulnerabilities](https://snyk.io/test/github/mmintel/tinacms-condition-field/badge.svg?targetFile=packages/tinacms-condition-field/package.json)](https://snyk.io/test/github/mmintel/tinacms-condition-field?targetFile=packages/tinacms-condition-field/package.json)
+# tinacms-relation-field [![Known Vulnerabilities](https://snyk.io/test/github/mmintel/tinacms-relation-field/badge.svg?targetFile=packages/tinacms-relation-field/package.json)](https://snyk.io/test/github/mmintel/tinacms-relation-field?targetFile=packages/tinacms-relation-field/package.json)
 
-> Adds a condition field to TinaCMS
+> Adds a relation field to TinaCMS
 
 ## Article
 If you want to read more in depth walk through to how this condition field works, checkout my article here:
-https://mintel.me/lets-create-a-conditional-field-for-tinacms/
+https://mintel.me/lets-create-a-relation-field-for-tinacms/
 
 
 ## Preview
-### Markdown
-![Markdown](docs/assets/example-markdown.gif)
+### With multiple references
+![Markdown](docs/assets/example-multiple.gif)
 
-### JSON
-![Json](docs/assets/example-json.gif)
+### With a single reference
+![Json](docs/assets/example-single.gif)
 
 ## Install
 
 ```bash
-npm install --save tinacms-condition-field
+npm install --save tinacms-relation-field
 ```
 
 or
 
 ```bash
-yarn add tinacms-condition-field
+yarn add tinacms-relation-field
 ```
 
 ### Manual
+You can either just install the `relation` field like this:
 ```jsx
-import TinaCMSConditionField from 'tinacms-condition-field'
+import TinaCMSRelationField from 'tinacms-relation-field'
 
-const conditionField = new TinaCMSConditionField(tinacms);
+const relationField = new TinaCMSRelationField(tinacms);
 
-conditionField.install();
+relationField.install();
 ```
+
+or you can install additional fields to save time when using them:
+```jsx
+import TinaCMSRelationField from 'tinacms-relation-field'
+
+const relationField = new TinaCMSRelationField(tinacms);
+
+relationField.install([{
+  name: 'page',
+  hook: usePages,
+  itemProps: page => ({
+    key: page.id,
+    label: page.frontmatter.title,
+  }),
+  sortable: true,
+  multiple: false,
+  noDataText: 'No pages created',
+}];
+```
+
+This will add the `page` component to TinaCMS fields.
 
 ### with Gatsby
 add to `gatsby-browser.js`
 ```jsx
-import TinaCMSConditionField from 'tinacms-condition-field'
+import TinaCMSRelationField from 'tinacms-condition-field'
 
 export const onClientEntry = () => {
-  const conditionField = new TinaCMSConditionField(window.tinacms);
-  conditionField.install();
+  const relationField = new TinaCMSRelationField(window.tinacms);
+  relationField.install();
 }
 ```
 
 ## Usage
-The condition component is applied when specifying `component: 'condition'` in your field.
-It needs a trigger that will toggle your condition. This can be any component usable with TinaCMS.
-The value is then passed to the `fields` method. Based on this value you can control which fields to return.
-If you don't return anything nothing will be displayed.
+The relation component is applied when specifying `component: 'relation'` in your field. Alternatively you can register multiple fields upfront which I highly recommend, it will save a lot of time, just pass them to the `install` in this case and they will be available.
+
+*Note:* you need to pass data to the relation field, this highly depends on your project structure. Checkout my example to see how I used a `usePages` hook in connection with `useStaticQuery` to pass the data from Gatsby to the relation field.
 
 ### Examples
+If you only want to use the `relation` component, you can use it like this:
 ```js
 {
-  name: 'frontmatter.useReadme',
-  component: 'condition',
-  label: 'Use Readme',
-  trigger: {
-    component: 'toggle'
-  },
-  fields: useReadme => {
-    if (!useReadme) {
-      return [
-        {
-          name: 'frontmatter.test',
-          component: 'text',
-          label: 'Some test',
-          description: 'To prove it works with multiple fields'
-        },
-        {
-          label: 'Body',
-          component: 'markdown',
-          name: 'rawMarkdownBody'
-        }
-      ]
-    }
-  }
+  label: 'Page',
+  name: 'page',
+  component: 'relation',
+  data: pages,
+  itemProps: page => ({
+    key: page.id,
+    label: page.frontmatter.title,
+  }),
+  multiple: false,
+  sortable: true,
+  noDataText: 'No pages created',
 }
 ```
 
+or if you already registered the field with the `install` method:
+
 ```js
 {
-  label: 'Internal',
-  name: 'internal',
-  description: 'Set to false if you want link to another website',
-  component: "condition",
-  trigger: {
-    component: "toggle"
-  },
-  fields: (internal) => {
-    return internal ? [
-      {
-        label: "Slug",
-        name: "slug",
-        component: "text"
-      }
-    ] : [
-      {
-        label: "Link",
-        name: "link",
-        component: "text",
-      }
-    ]
-  }
-},
+  label: 'Page',
+  name: 'page',
+  component: 'page'
+}
 ```

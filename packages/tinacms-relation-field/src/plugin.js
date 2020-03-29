@@ -21,7 +21,7 @@ export default class {
   }
 
   add({
-    name, hook, itemProps, noDataText, sortable
+    name, hook, itemProps, noDataText, sortable, multiple
   }) {
     const Component = ({ field, input, form }) => {
       const data = hook()
@@ -31,7 +31,8 @@ export default class {
         data,
         itemProps,
         noDataText,
-        sortable
+        sortable,
+        multiple
       }
 
       return (
