@@ -1,11 +1,6 @@
 {
   "main": [
     {
-      "title": "Relation Field",
-      "internal": true,
-      "page": "ffbe280b-84f2-5902-9756-f6146149b5c1"
-    },
-    {
       "title": "Home",
       "internal": true,
       "slug": "/",
@@ -16,6 +11,11 @@
       "internal": true,
       "slug": "/condition",
       "page": "0fbaac30-f53b-5e10-83b9-64d325ac5833"
+    },
+    {
+      "title": "Relation Field",
+      "internal": true,
+      "page": "ffbe280b-84f2-5902-9756-f6146149b5c1"
     },
     {
       "title": "Blog",
