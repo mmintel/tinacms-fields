@@ -13,7 +13,7 @@
     "build": "lerna exec --scope tinacms-* -- rollup -c \\$LERNA_ROOT_PATH/rollup.config.js",
     "lint": "lerna run lint",
     "predeploy": "lerna run --scope example build",
-    "deploy": "gh-pages -d example/build",
+    "deploy": "gh-pages -d example/public",
     "develop": "yarn build && lerna run develop",
     "dev": "npm run develop",
     "prerelease": "npm run build",
