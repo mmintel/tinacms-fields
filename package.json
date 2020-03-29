@@ -15,7 +15,9 @@
     "predeploy": "lerna run --scope example build",
     "deploy": "gh-pages -d example/build",
     "develop": "yarn build && lerna run develop",
-    "dev": "npm run develop"
+    "dev": "npm run develop",
+    "prerelease": "npm run build",
+    "release": "lerna publish --conventional-commits"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
