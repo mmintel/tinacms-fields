@@ -4,9 +4,12 @@
       "title": "Home",
       "internal": true,
       "slug": "/",
-      "rawJson": {
-        "slug": "/"
-      }
+      "page": "04188964-f833-59d9-98db-1d6208773c69"
+    },
+    {
+      "title": "Condition Field",
+      "internal": true,
+      "slug": "/condition"
     },
     {
       "title": "Blog",
