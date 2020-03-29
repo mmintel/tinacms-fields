@@ -15,12 +15,18 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "build": "rollup -c",
+    "build": "rollup -c \\$LERNA_ROOT_PATH/rollup.config.js",
     "develop": "rollup -c -w",
-    "dev": "npm run develop"
+    "dev": "npm run develop",
+    "lint": "eslint src"
   },
   "dependencies": {
     "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "^1.1.4"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",

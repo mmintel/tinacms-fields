@@ -15,17 +15,23 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "build": "rollup -c",
+    "build": "rollup -c \\$LERNA_ROOT_PATH/rollup.config.js",
     "develop": "rollup -c -w",
-    "dev": "npm run develop"
+    "dev": "npm run develop",
+    "lint": "eslint src"
   },
   "dependencies": {
     "styled-components": "^5.0.1"
   },
+  "devDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "^1.1.4"
+  },
   "peerDependencies": {
     "prop-types": "^15.5.4",
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "@tinacms/form-builder": "^0.3.0",
     "tinacms": "^0.18.0"
   },

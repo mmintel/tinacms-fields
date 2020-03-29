@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export default styled.div`
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -15,4 +15,4 @@ export default styled.div`
     padding: 0.25rem;
     border-radius: 0.1rem;
   }
-`
+`;

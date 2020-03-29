@@ -1,30 +1,117 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Link from 'gatsby-link'
-import { withPlugin } from 'tinacms'
-import { useGlobalJsonForm } from 'gatsby-tinacms-json'
-import { useLocalRemarkForm, RemarkCreatorPlugin } from 'gatsby-tinacms-remark'
-import slugify from 'slugify'
-import Base from '../components/base'
-import Center from '../components/center'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import Link from 'gatsby-link';
+import { withPlugin } from 'tinacms';
+import { useGlobalJsonForm } from 'gatsby-tinacms-json';
+import { useLocalRemarkForm, RemarkCreatorPlugin } from 'gatsby-tinacms-remark';
+import slugify from 'slugify';
+import Base from '../components/base';
+import Center from '../components/center';
+
+const editPageForm = {
+  fields: [
+    {
+      name: 'frontmatter.title',
+      component: 'text',
+      label: 'Title',
+    },
+    {
+      name: 'frontmatter.slug',
+      component: 'text',
+      label: 'Slug',
+    },
+    {
+      name: 'frontmatter.showContent',
+      component: 'condition',
+      label: 'Show content',
+      trigger: {
+        component: 'toggle',
+      },
+      fields: (showContent) => {
+        if (showContent) {
+          return [
+            {
+              name: 'frontmatter.test',
+              component: 'text',
+              label: 'Some test',
+              description: 'To prove it works with multiple fields',
+            },
+            {
+              label: 'Body',
+              component: 'markdown',
+              name: 'rawMarkdownBody',
+            },
+          ];
+        }
+      },
+    },
+  ],
+};
+
+const editNavigationForm = {
+  label: 'Navigation',
+  fields: [
+    {
+      label: 'Main Menu',
+      name: 'rawJson.main',
+      component: 'group-list',
+      itemProps: (item) => ({
+        label: item.title,
+      }),
+      defaultItem: () => ({
+        title: 'New Menu Item',
+        internal: true,
+      }),
+      fields: [
+        {
+          label: 'Title',
+          name: 'title',
+          component: 'text',
+        },
+        {
+          label: 'Internal',
+          name: 'internal',
+          description: 'Set to false if you want link to another website',
+          component: 'condition',
+          trigger: {
+            component: 'toggle',
+          },
+          fields: (internal) => (internal ? [
+            {
+              label: 'Page',
+              name: 'page',
+              component: 'page',
+            },
+          ] : [
+            {
+              label: 'Link',
+              name: 'link',
+              component: 'text',
+            },
+          ]),
+        },
+      ],
+    },
+  ],
+};
 
 const Page = ({ data }) => {
-  const [page] = useLocalRemarkForm(data.page, editPageForm)
-  const [navigation] = useGlobalJsonForm(data.navigation, editNavigationForm)
+  const [page] = useLocalRemarkForm(data.page, editPageForm);
+  const [navigation] = useGlobalJsonForm(data.navigation, editNavigationForm);
 
   return (
     <Base>
       <Center>
         <div>
           <ul>
-            { navigation.main.map(item => (
+            { navigation.main.map((item) => (
               <li>
-                { item.internal ?  (
+                { item.internal ? (
                   <Link to={item.target || '/'}>{ item.title }</Link>
                 ) : (
                   <div>
-                    <a href={item.target || '/'} target="_blank">{ item.title }</a> (external)
+                    <a href={item.target || '/'} target="_blank" rel="noopener noreferrer">{ item.title }</a> (external)
                   </div>
                 )}
               </li>
@@ -36,135 +123,46 @@ const Page = ({ data }) => {
         </div>
       </Center>
     </Base>
-  )
-}
+  );
+};
 
 Page.propTypes = {
   data: PropTypes.shape({
     navigation: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string
+      title: PropTypes.string,
     })),
     page: PropTypes.shape({
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
         slug: PropTypes.string,
-        showContent: PropTypes.bool
-      })
-    })
-  })
-}
+        showContent: PropTypes.bool,
+      }),
+    }),
+  }).isRequired,
+};
 
 const createPageForm = {
   label: 'New Page',
   fields: [
     { name: 'title', component: 'text', label: 'Title' },
-    { name: 'slug', component: 'text', label: 'Slug' }
+    { name: 'slug', component: 'text', label: 'Slug' },
   ],
   filename(form) {
-    const slug = slugify(form.title.toLowerCase())
-    return `pages/${slug}.md`
+    const slug = slugify(form.title.toLowerCase());
+    return `pages/${slug}.md`;
   },
   data(form) {
-    const slug = slugify(form.title.toLowerCase())
+    const slug = slugify(form.title.toLowerCase());
     return {
       createdAt: new Date(),
       updatedAt: null,
       title: form.title,
       language: form.language,
       description: '',
-      slug
-    }
-  }
-}
-
-const editPageForm = {
-  fields: [
-    {
-      name: 'frontmatter.title',
-      component: 'text',
-      label: 'Title'
-    },
-    {
-      name: 'frontmatter.slug',
-      component: 'text',
-      label: 'Slug'
-    },
-    {
-      name: 'frontmatter.showContent',
-      component: 'condition',
-      label: 'Show content',
-      trigger: {
-        component: 'toggle'
-      },
-      fields: showContent => {
-        if (showContent) {
-          return [
-            {
-              name: 'frontmatter.test',
-              component: 'text',
-              label: 'Some test',
-              description: 'To prove it works with multiple fields'
-            },
-            {
-              label: 'Body',
-              component: 'markdown',
-              name: 'rawMarkdownBody'
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-
-const editNavigationForm = {
-  label: "Navigation",
-  fields: [
-    {
-      label: "Main Menu",
-      name: "rawJson.main",
-      component: "group-list",
-      itemProps: item => ({
-        label: item.title,
-      }),
-      defaultItem: () => ({
-        title: 'New Menu Item',
-        internal: true
-      }),
-      fields: [
-        {
-          label: "Title",
-          name: "title",
-          component: "text"
-        },
-        {
-          label: 'Internal',
-          name: 'internal',
-          description: 'Set to false if you want link to another website',
-          component: "condition",
-          trigger: {
-            component: "toggle"
-          },
-          fields: (internal) => {
-            return internal ? [
-              {
-                label: "Page",
-                name: "page",
-                component: "page"
-              }
-            ] : [
-              {
-                label: "Link",
-                name: "link",
-                component: "text",
-              }
-            ]
-          }
-        },
-      ],
-    },
-  ],
-}
+      slug,
+    };
+  },
+};
 
 export const pageQuery = graphql`
   query($slug: String!) {
@@ -199,8 +197,8 @@ export const pageQuery = graphql`
       fileRelativePath
     }
   }
-`
+`;
 
-const CreatePagePlugin = new RemarkCreatorPlugin(createPageForm)
+const CreatePagePlugin = new RemarkCreatorPlugin(createPageForm);
 
-export default withPlugin(Page, CreatePagePlugin)
+export default withPlugin(Page, CreatePagePlugin);

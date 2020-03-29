@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "lint": "eslint src"
   },
   "dependencies": {
     "tinacms-condition-field": "^0.0.0",

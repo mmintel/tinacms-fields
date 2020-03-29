@@ -1,18 +1,18 @@
-import Condition from './components/condition'
+import Condition from './components/condition';
 
 export default class {
   constructor(tinacms) {
-    this.tinacms = tinacms
+    this.tinacms = tinacms;
   }
 
   install() {
     this.tinacms.fields.add({
       name: 'condition',
-      Component: Condition
-    })
+      Component: Condition,
+    });
   }
 }
 
 export {
-  Condition
-}
+  Condition,
+};

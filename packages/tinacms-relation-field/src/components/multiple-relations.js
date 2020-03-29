@@ -2,11 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import { AddIcon, DragIcon, ReorderIcon, TrashIcon } from '@tinacms/icons'
+import {
+  AddIcon, DragIcon, ReorderIcon, TrashIcon
+} from '@tinacms/icons'
 import {
   IconButton
 } from '@tinacms/styles'
-import { RelationHeader, RelationBody, FieldLabel } from './relation'
+import { FormHeader, FormBody, FieldLabel } from './form'
 
 const MultipleRelations = ({ input, field, form }) => {
   const [visible, setVisible] = React.useState(false)
@@ -18,12 +20,12 @@ const MultipleRelations = ({ input, field, form }) => {
   }, [field.data])
 
   React.useEffect(() => {
-    const newAvailableData = field.data.filter(i => !value.includes(i.key))
+    const newAvailableData = field.data.filter((i) => !value.includes(i.key))
     setAvailableData(newAvailableData)
   }, [value])
 
   const addRelation = React.useCallback(
-    value => {
+    (value) => {
       form.mutators.insert(field.name, 0, value)
     },
     [field.name, form.mutators]
@@ -48,10 +50,10 @@ const MultipleRelations = ({ input, field, form }) => {
 
   return (
     <DragDropContext onDragEnd={moveArrayItem}>
-      <RelationHeader>
+      <FormHeader>
         <FieldLabel>{field.label}</FieldLabel>
         { !!availableData.length && (
-          <React.Fragment>
+          <>
             <IconButton
               primary
               small
@@ -62,7 +64,7 @@ const MultipleRelations = ({ input, field, form }) => {
             </IconButton>
             <RelationMenu open={visible}>
               <RelationMenuList>
-                {availableData.map(item => {
+                {availableData.map((item) => {
                   const props = field.itemProps(item)
                   return (
                     <RelationOption
@@ -82,17 +84,17 @@ const MultipleRelations = ({ input, field, form }) => {
                 })}
               </RelationMenuList>
             </RelationMenu>
-          </React.Fragment>
+          </>
         )}
-      </RelationHeader>
+      </FormHeader>
       <Droppable droppableId={field.name} type={field.name}>
-        {provider => (
-          <RelationBody ref={provider.innerRef}>
+        {(provider) => (
+          <FormBody ref={provider.innerRef}>
             {field.data.length === 0 && (
               <EmptyList>{field.noDataText}</EmptyList>
             )}
             {value.map((key, index) => {
-              const item = field.data.find(item => field.itemProps(item).key === key)
+              const item = field.data.find((item) => field.itemProps(item).key === key)
               return (
                 <RelationListItem
                   item={item}
@@ -106,7 +108,7 @@ const MultipleRelations = ({ input, field, form }) => {
               )
             })}
             {provider.placeholder}
-          </RelationBody>
+          </FormBody>
         )}
       </Droppable>
     </DragDropContext>
@@ -116,7 +118,7 @@ const MultipleRelations = ({ input, field, form }) => {
 MultipleRelations.propTypes = {
   input: PropTypes.shape({
     value: PropTypes.any
-  }),
+  }).isRequired,
   field: PropTypes.shape({
     itemProps: PropTypes.func,
     data: PropTypes.arrayOf(PropTypes.object),
@@ -124,19 +126,21 @@ MultipleRelations.propTypes = {
     name: PropTypes.string,
     label: PropTypes.string,
     sortable: PropTypes.bool
-  }),
+  }).isRequired,
   form: PropTypes.shape({
     mutators: PropTypes.shape({
       insert: PropTypes.func,
       move: PropTypes.func,
       remove: PropTypes.func
     })
-  })
+  }).isRequired
 }
 
 export default MultipleRelations
 
-const RelationListItem = ({ item, form, field, index, onRemove, isDragDisabled }) => {
+const RelationListItem = ({
+  item, form, field, index, onRemove, isDragDisabled
+}) => {
   const handleRemove = React.useCallback(() => {
     onRemove(index, field)
   }, [form, field, index])
@@ -176,7 +180,7 @@ const RelationListItem = ({ item, form, field, index, onRemove, isDragDisabled }
 }
 
 RelationListItem.propTypes = {
-  index: PropTypes.number,
+  index: PropTypes.number.isRequired,
   field: PropTypes.shape({
     name: PropTypes.string,
     mutators: PropTypes.shape({
@@ -184,14 +188,14 @@ RelationListItem.propTypes = {
       move: PropTypes.func,
       remove: PropTypes.func
     })
-  }),
-  form: PropTypes.object,
+  }).isRequired,
+  form: PropTypes.shape({}).isRequired,
   item: PropTypes.shape({
     key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     label: PropTypes.string
-  }),
-  onRemove: PropTypes.func,
-  isDragDisabled: PropTypes.bool
+  }).isRequired,
+  onRemove: PropTypes.func.isRequired,
+  isDragDisabled: PropTypes.bool.isRequired
 }
 
 const Placeholder = styled.span`
@@ -199,14 +203,12 @@ const Placeholder = styled.span`
   text-transform: italic;
 `
 
-const DragHandle = styled(function DragHandle({ ...styleProps }) {
-  return (
-    <div {...styleProps}>
-      <DragIcon />
-      <ReorderIcon />
-    </div>
-  )
-})`
+const DragHandle = styled(({ ...styleProps }) => (
+  <div {...styleProps}>
+    <DragIcon />
+    <ReorderIcon />
+  </div>
+))`
   margin: 0;
   flex: 0 0 auto;
   width: 2rem;
@@ -254,8 +256,7 @@ const ItemLabel = styled.label`
   padding: 0 0.5rem;
   pointer-events: none;
 
-  ${props =>
-    props.error &&
+  ${(props) => props.error &&
     css`
       color: var(--tina-color-error) !important;
     `};
@@ -344,8 +345,7 @@ const ListItem = styled.div`
     }
   }
 
-  ${p =>
-    p.isDragging &&
+  ${(p) => p.isDragging &&
     css`
       border-radius: var(--tina-radius-small);
       box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.12);
@@ -385,8 +385,7 @@ const RelationMenu = styled.div`
   background-color: white;
   overflow: hidden;
   z-index: 100;
-  ${props =>
-    props.open &&
+  ${(props) => props.open &&
     css`
       opacity: 1;
       pointer-events: all;

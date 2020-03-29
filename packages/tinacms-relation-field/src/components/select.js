@@ -2,44 +2,44 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const Select = ({ input, field, options, noDataText }) => {
-  return (
-    <SelectElement>
-      <select
-        id={input.name}
-        value={input.value}
-        onChange={input.onChange}
-        disabled={field.disabled}
-        {...input}
-      >
-        {options ? (
-          options.map(option => (
-            <option value={option.key} key={option.key}>
-              {option.label}
-            </option>
-          ))
-        ) : (
-          <option>{noDataText}</option>
-        )}
-      </select>
-    </SelectElement>
-  )
-}
+const Select = ({
+  input, field, options, noDataText
+}) => (
+  <SelectElement>
+    <select
+      id={input.name}
+      value={input.value}
+      onChange={input.onChange}
+      disabled={field.disabled}
+      {...input}
+    >
+      {options ? (
+        options.map((option) => (
+          <option value={option.key} key={option.key}>
+            {option.label}
+          </option>
+        ))
+      ) : (
+        <option>{noDataText}</option>
+      )}
+    </select>
+  </SelectElement>
+)
 
 Select.propTypes = {
-  noDataText: PropTypes.string,
+  noDataText: PropTypes.string.isRequired,
   input: PropTypes.shape({
     name: PropTypes.string,
     value: PropTypes.any,
     onChange: PropTypes.func
-  }),
+  }).isRequired,
   field: PropTypes.shape({
     disabled: PropTypes.bool
-  }),
+  }).isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
     label: PropTypes.string
-  }))
+  })).isRequired
 }
 
 export default Select

@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { RelationHeader, RelationBody, FieldLabel } from './relation'
+import { FormHeader, FormBody, FieldLabel } from './form'
 import Select from './select'
 
 const SingleRelation = ({ input, field }) => {
-  const options = field.data.map(item => field.itemProps(item))
+  const options = field.data.map((item) => field.itemProps(item))
 
   const selectOptions = [
     {
@@ -16,30 +16,30 @@ const SingleRelation = ({ input, field }) => {
   ]
 
   return (
-    <React.Fragment>
-      <RelationHeader>
+    <>
+      <FormHeader>
         <FieldLabel>{field.label}</FieldLabel>
-      </RelationHeader>
-      <RelationBody>
+      </FormHeader>
+      <FormBody>
         <Select
           input={input}
           field={field}
           options={selectOptions}
           noDataText={field.noDataText}
         />
-      </RelationBody>
-    </React.Fragment>
+      </FormBody>
+    </>
   )
 }
 
 SingleRelation.propTypes = {
-  input: PropTypes.object,
+  input: PropTypes.shape({}).isRequired,
   field: PropTypes.shape({
     label: PropTypes.string,
     noDataText: PropTypes.string,
     data: PropTypes.arrayOf(PropTypes.object),
     itemProps: PropTypes.func
-  })
+  }).isRequired
 }
 
 export default SingleRelation

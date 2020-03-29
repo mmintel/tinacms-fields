@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby';
 
 export default () => {
   const { pages } = useStaticQuery(
@@ -13,7 +13,7 @@ export default () => {
           }
         }
       }
-    `
-  )
-  return pages.nodes
-}
+    `,
+  );
+  return pages.nodes;
+};

@@ -9,7 +9,7 @@ export default class {
 
   install(fields) {
     if (fields) {
-      fields.forEach(field => {
+      fields.forEach((field) => {
         this.add(field)
       })
     }
@@ -20,7 +20,9 @@ export default class {
     })
   }
 
-  add({ name, hook, itemProps, noDataText, sortable }) {
+  add({
+    name, hook, itemProps, noDataText, sortable
+  }) {
     const Component = ({ field, input, form }) => {
       const data = hook()
 
@@ -42,9 +44,9 @@ export default class {
     }
 
     Component.propTypes = {
-      field: PropTypes.object,
-      input: PropTypes.object,
-      form: PropTypes.object
+      field: PropTypes.shape({}).isRequired,
+      input: PropTypes.shape({}).isRequired,
+      form: PropTypes.shape({}).isRequired
     }
 
     this.tinacms.fields.add({

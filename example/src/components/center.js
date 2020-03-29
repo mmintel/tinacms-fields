@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export default styled.div`
   display: flex;
@@ -9,4 +9,4 @@ export default styled.div`
   > div {
     max-width: 800px;
   }
-`
+`;
