@@ -6,11 +6,8 @@ import { withPlugin } from 'tinacms'
 import { useGlobalJsonForm } from 'gatsby-tinacms-json'
 import { useLocalRemarkForm, RemarkCreatorPlugin } from 'gatsby-tinacms-remark'
 import slugify from 'slugify'
-import README from '../../../README.md'
 import Base from '../components/base'
 import Center from '../components/center'
-
-require('prismjs/themes/prism-okaidia.css')
 
 const Page = ({ data }) => {
   const [page] = useLocalRemarkForm(data.page, editPageForm)
@@ -19,24 +16,24 @@ const Page = ({ data }) => {
   return (
     <Base>
       <Center>
-        { page.frontmatter.useReadme ? (
-          <div dangerouslySetInnerHTML={{ __html: README }} />
-        ) : (
-          <div>
-            <ul>
-              { navigation.main.map(item => (
-                <li>
-                  { item.internal ?  (
-                    <Link to={item.target}>{ item.title }</Link>
-                  ) : (
-                    <a href={item.target || '/'} target="_blank">{ item.title }</a>
-                  )}
-                </li>
-              ))}
-            </ul>
+        <div>
+          <ul>
+            { navigation.main.map(item => (
+              <li>
+                { item.internal ?  (
+                  <Link to={item.target || '/'}>{ item.title }</Link>
+                ) : (
+                  <div>
+                    <a href={item.target || '/'} target="_blank">{ item.title }</a> (external)
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+          { page.frontmatter.showContent && (
             <div dangerouslySetInnerHTML={{ __html: page.html }} />
-          </div>
-        )}
+          )}
+        </div>
       </Center>
     </Base>
   )
@@ -50,7 +47,8 @@ Page.propTypes = {
     page: PropTypes.shape({
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
-        slug: PropTypes.string
+        slug: PropTypes.string,
+        showContent: PropTypes.bool
       })
     })
   })
@@ -92,14 +90,14 @@ const editPageForm = {
       label: 'Slug'
     },
     {
-      name: 'frontmatter.useReadme',
+      name: 'frontmatter.showContent',
       component: 'condition',
-      label: 'Use Readme',
+      label: 'Show content',
       trigger: {
         component: 'toggle'
       },
-      fields: useReadme => {
-        if (!useReadme) {
+      fields: showContent => {
+        if (showContent) {
           return [
             {
               name: 'frontmatter.test',
@@ -150,9 +148,9 @@ const editNavigationForm = {
           fields: (internal) => {
             return internal ? [
               {
-                label: "Slug",
-                name: "slug",
-                component: "text"
+                label: "Page",
+                name: "page",
+                component: "page"
               }
             ] : [
               {
@@ -180,7 +178,7 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
-        useReadme
+        showContent
       }
 
       fileRelativePath

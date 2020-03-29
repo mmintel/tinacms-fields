@@ -1,12 +1,12 @@
 ---
-title: tinacms-condition-field
+title: tinacms-fields
 slug: /
-useReadme: true
-test: It works!!
+showContent: true
 ---
-# tinacms-condition-field
+# tinacms-fields
 
-To try out, open the sidebar and toggle the _use readme_ setting. All unneccessary fields will be hidden and that's exactly what this field does. It toggles fields based on a condition.
+Hey! Welcome to my personal fields playground!
+Navigate to the page of a field to get more instructions.
 
 ## Credits
 

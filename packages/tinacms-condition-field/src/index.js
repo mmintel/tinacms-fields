@@ -2,7 +2,7 @@ import Condition from './components/condition'
 
 export default class TinaCMSConditionField {
   constructor(tinacms) {
-    this.tinacms = tinacms;
+    this.tinacms = tinacms
   }
 
   install() {

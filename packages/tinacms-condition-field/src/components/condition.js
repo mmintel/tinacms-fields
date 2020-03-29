@@ -5,14 +5,14 @@ import { FieldsBuilder } from '@tinacms/form-builder'
 
 const Condition = ({ input, field, form }) => {
   const nestedFields = field.fields(input.value)
-  let conditionalFields = [];
+  let conditionalFields = []
 
   if (nestedFields) {
     conditionalFields = nestedFields.map(f => {
       let name = f.name
 
       if (name.includes('frontmatter')) {
-        name = name.replace('frontmatter', 'rawFrontmatter');
+        name = name.replace('frontmatter', 'rawFrontmatter')
       }
 
       if (field.name.includes('rawJson')) {
@@ -44,9 +44,9 @@ const Condition = ({ input, field, form }) => {
 }
 
 const ConditionalField = styled.div`
-  margin-top: -20px;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-top: calc(var(--tina-padding-big) * -1);
+  margin-left: calc(var(--tina-padding-big) * -1);
+  margin-right: calc(var(--tina-padding-big) * -1);
 `
 
 Condition.propTypes = {

@@ -2,14 +2,7 @@ module.exports = {
   plugins: [
     'gatsby-tinacms-json',
     'gatsby-transformer-json',
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-prismjs`
-        ]
-      }
-    },
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

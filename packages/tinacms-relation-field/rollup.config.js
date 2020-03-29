@@ -20,6 +20,8 @@ export default {
     }
   ],
   external: [
+    '@tinacms/styles',
+    '@tinacms/icons',
     'react-is'
   ],
   plugins: [
