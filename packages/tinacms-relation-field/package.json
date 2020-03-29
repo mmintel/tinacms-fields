@@ -1,6 +1,6 @@
 {
   "name": "tinacms-relation-field",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "description": "Adds a relation field to TinaCMS",
   "author": "mmintel",
   "license": "MIT",
@@ -29,10 +29,10 @@
     "react-scripts": "^1.1.4"
   },
   "peerDependencies": {
+    "@tinacms/form-builder": "^0.3.0",
     "prop-types": "^15.5.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "@tinacms/form-builder": "^0.3.0",
     "tinacms": "^0.18.0"
   },
   "files": [

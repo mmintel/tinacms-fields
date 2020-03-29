@@ -1,6 +1,6 @@
 {
   "name": "tinacms-condition-field",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "description": "Adds a condition field to TinaCMS",
   "author": "mmintel",
   "license": "MIT",
@@ -29,10 +29,10 @@
     "react-scripts": "^1.1.4"
   },
   "peerDependencies": {
+    "@tinacms/form-builder": "^0.3.0",
     "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0",
-    "@tinacms/form-builder": "^0.3.0",
     "tinacms": "^0.18.0"
   },
   "files": [
