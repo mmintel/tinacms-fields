@@ -1,8 +1,9 @@
 {
   "main": [
     {
-      "title": "New Menu Item",
-      "internal": true
+      "title": "Relation Field",
+      "internal": true,
+      "page": "ffbe280b-84f2-5902-9756-f6146149b5c1"
     },
     {
       "title": "Home",
