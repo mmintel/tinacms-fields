@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "Marc Mintel <marc@mintel.me> (@mmintel)",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
