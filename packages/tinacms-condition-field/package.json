@@ -4,7 +4,7 @@
   "description": "Adds a condition field to TinaCMS",
   "author": "mmintel",
   "license": "MIT",
-  "repository": "mmintel/tinacms-condition-field",
+  "repository": "mmintel/tinacms-fields",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",

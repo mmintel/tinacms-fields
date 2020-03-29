@@ -1,18 +1,3 @@
-import Condition from './components/condition'
+import Plugin from './plugin'
 
-export default class TinaCMSConditionField {
-  constructor(tinacms) {
-    this.tinacms = tinacms
-  }
-
-  install() {
-    this.tinacms.fields.add({
-      name: 'condition',
-      Component: Condition
-    })
-  }
-}
-
-export {
-  Condition
-}
+export default Plugin
