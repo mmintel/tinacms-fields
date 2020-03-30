@@ -2,7 +2,6 @@
 title: tinacms-fields
 slug: /
 showContent: true
-file: ''
 ---
 # tinacms-fields
 

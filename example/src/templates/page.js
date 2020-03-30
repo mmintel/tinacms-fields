@@ -27,6 +27,7 @@ const editPageForm = {
       description: 'This is a pdf upload field',
       label: 'PDF',
       accept: 'application/pdf',
+      parse: (file) => `../uploads/${file}`,
       uploadDir: () => 'src/uploads',
     },
     {

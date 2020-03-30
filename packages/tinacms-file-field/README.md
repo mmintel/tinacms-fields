@@ -60,6 +60,7 @@ You can also specify to accept only specific MIME types, change the default uplo
   label: 'PDF',
   accept: 'application/pdf',
   clearable: true,
+  parse: (file) => `../uploads/${file}`,
   uploadDir: () => 'src/uploads',
 },
 ```
