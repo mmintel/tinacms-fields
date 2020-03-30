@@ -52,6 +52,7 @@ relationField.install([{
   }),
   sortable: true,
   multiple: false,
+  disabled: false,
   noDataText: 'No pages created',
 }]);
 ```
@@ -88,6 +89,7 @@ If you only want to use the `relation` component, you can use it like this:
   }),
   multiple: false,
   sortable: true,
+  disabled: false,
   noDataText: 'No pages created',
 }
 ```
