@@ -16475,6 +16475,13 @@ react-tinacms-editor@^0.2.0:
     prosemirror-view "^1.11.3"
     react-dismissible "^1.1.5"
 
+react-tinacms@^0.9.15:
+  version "0.9.15"
+  resolved "https://registry.yarnpkg.com/react-tinacms/-/react-tinacms-0.9.15.tgz#706316b79a0cf164ca6d2929b131f1e5590829c5"
+  integrity sha512-t2uJwKV0a/YXEhrq7yK8FC20yWtWxsLhkWl5GwfvVOS/pQYM/ZVTBfN+kQViF2Dzu98Ji5HZyEpj94voAdP0Xg==
+  dependencies:
+    tinacms "^0.18.0"
+
 react@^16.12.0, react@^16.13.1, react@^16.8.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

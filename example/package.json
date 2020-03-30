@@ -23,6 +23,7 @@
     "react-dom": "^16.12.0",
     "tinacms": "^0.18.0",
     "tinacms-condition-field": "^1.0.4",
-    "tinacms-relation-field": "^1.0.4"
+    "tinacms-relation-field": "^1.0.4",
+    "tinacms-file-field": "^1.0.4"
   }
 }

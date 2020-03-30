@@ -1,5 +1,6 @@
 import TinaCMSConditionField from 'tinacms-condition-field';
 import TinaCMSRelationField from 'tinacms-relation-field';
+import TinaCMSFileField from 'tinacms-file-field';
 import usePages from './src/hooks/use-pages';
 
 export const onClientEntry = () => {
@@ -19,4 +20,7 @@ export const onClientEntry = () => {
     sortable: true,
     noDataText: 'No pages created',
   }]);
+
+  const fileField = new TinaCMSFileField(window.tinacms);
+  fileField.install();
 };

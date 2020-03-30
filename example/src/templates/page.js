@@ -22,6 +22,14 @@ const editPageForm = {
       label: 'Slug',
     },
     {
+      name: 'frontmatter.file',
+      component: 'file',
+      description: 'This is a pdf upload field',
+      label: 'PDF',
+      accept: 'application/pdf',
+      uploadDir: () => 'src/uploads',
+    },
+    {
       name: 'frontmatter.showContent',
       component: 'condition',
       label: 'Show content',
