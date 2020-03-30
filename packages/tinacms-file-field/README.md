@@ -1,4 +1,4 @@
-# tinacms-file-field [![Known Vulnerabilities](https://snyk.io/test/github/mmintel/tinacms-file-field/badge.svg?targetFile=packages/tinacms-file-field/package.json)](https://snyk.io/test/github/mmintel/tinacms-condition-field?targetFile=packages/tinacms-file-field/package.json) [![NPM](https://img.shields.io/npm/v/tinacms-file-field.svg)](https://www.npmjs.com/package/tinacms-file-field)
+# tinacms-file-field [![Known Vulnerabilities](https://snyk.io/test/github/mmintel/tinacms-condition-field/badge.svg?targetFile=packages/tinacms-file-field/package.json)](https://snyk.io/test/github/mmintel/tinacms-condition-field?targetFile=packages/tinacms-file-field/package.json) [![NPM](https://img.shields.io/npm/v/tinacms-file-field.svg)](https://www.npmjs.com/package/tinacms-file-field)
 
 > Adds a file field to TinaCMS
 
