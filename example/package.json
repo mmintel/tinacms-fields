@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "author": "Marc Mintel <marc@mintel.me> (@mmintel)",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "tinacms": "^0.18.0",
-    "tinacms-condition-field": "^1.0.3",
-    "tinacms-relation-field": "^1.0.3"
+    "tinacms-condition-field": "^1.0.4",
+    "tinacms-relation-field": "^1.0.4"
   }
 }
