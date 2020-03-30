@@ -14,7 +14,7 @@
     "lint": "lerna run lint",
     "predeploy": "lerna run --scope example build",
     "deploy": "gh-pages -d example/public",
-    "develop": "yarn build && lerna run develop",
+    "develop": "lerna run develop",
     "dev": "npm run develop",
     "prerelease": "npm run build",
     "release": "lerna publish --conventional-commits"
