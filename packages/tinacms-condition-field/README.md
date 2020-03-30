@@ -9,10 +9,10 @@ https://mintel.me/lets-create-a-conditional-field-for-tinacms/
 
 ## Preview
 ### Markdown
-![Markdown](docs/assets/example-markdown.gif)
+![Markdown](https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-condition-field/docs/assets/example-markdown.gif)
 
 ### JSON
-![Json](docs/assets/example-json.gif)
+![Json](https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-condition-field/docs/assets/example-json.gif)
 
 ## Install
 
