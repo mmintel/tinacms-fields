@@ -52,7 +52,7 @@ relationField.install([{
   sortable: true,
   multiple: false,
   noDataText: 'No pages created',
-}];
+}]);
 ```
 
 This will add the `page` component to TinaCMS fields.
