@@ -3,7 +3,7 @@
 > Adds a file field to TinaCMS
 
 ## Preview
-![Example](https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-condition-field/docs/assets/example.gif)
+![Example](https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-file-field/docs/assets/example.gif)
 
 ## Install
 
