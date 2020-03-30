@@ -1,30 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Relation from './components/relation'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Relation from './components/relation';
 
 export default class {
   constructor(tinacms) {
-    this.tinacms = tinacms
+    this.tinacms = tinacms;
   }
 
   install(fields) {
     if (fields) {
       fields.forEach((field) => {
-        this.add(field)
-      })
+        this.add(field);
+      });
     }
 
     this.tinacms.fields.add({
       name: 'relation',
-      Component: Relation
-    })
+      Component: Relation,
+    });
   }
 
   add({
-    name, hook, itemProps, noDataText, sortable, multiple
+    name, hook, itemProps, noDataText, sortable, multiple,
   }) {
     const Component = ({ field, input, form }) => {
-      const data = hook()
+      const data = hook();
 
       const newField = {
         ...field,
@@ -32,8 +32,8 @@ export default class {
         itemProps,
         noDataText,
         sortable,
-        multiple
-      }
+        multiple,
+      };
 
       return (
         <Relation
@@ -41,22 +41,22 @@ export default class {
           input={input}
           field={newField}
         />
-      )
-    }
+      );
+    };
 
     Component.propTypes = {
       field: PropTypes.shape({}).isRequired,
       input: PropTypes.shape({}).isRequired,
-      form: PropTypes.shape({}).isRequired
-    }
+      form: PropTypes.shape({}).isRequired,
+    };
 
     this.tinacms.fields.add({
       name,
-      Component
-    })
+      Component,
+    });
   }
 }
 
 export {
-  Relation
-}
+  Relation,
+};

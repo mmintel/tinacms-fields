@@ -1,52 +1,52 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import {
-  AddIcon, DragIcon, ReorderIcon, TrashIcon
-} from '@tinacms/icons'
+  AddIcon, DragIcon, ReorderIcon, TrashIcon,
+} from '@tinacms/icons';
 import {
-  IconButton
-} from '@tinacms/styles'
-import { FormHeader, FormBody, FieldLabel } from './form'
+  IconButton,
+} from '@tinacms/styles';
+import { FormHeader, FormBody, FieldLabel } from './form';
 
 const MultipleRelations = ({ input, field, form }) => {
-  const [visible, setVisible] = React.useState(false)
-  const [availableData, setAvailableData] = React.useState(field.data)
-  const value = input.value || []
+  const [visible, setVisible] = React.useState(false);
+  const [availableData, setAvailableData] = React.useState(field.data);
+  const value = input.value || [];
 
   React.useEffect(() => {
-    setAvailableData(field.data)
-  }, [field.data])
+    setAvailableData(field.data);
+  }, [field.data]);
 
   React.useEffect(() => {
-    const newAvailableData = field.data.filter((i) => !value.includes(i.key))
-    setAvailableData(newAvailableData)
-  }, [value])
+    const newAvailableData = field.data.filter((i) => !value.includes(i.key));
+    setAvailableData(newAvailableData);
+  }, [value]);
 
   const addRelation = React.useCallback(
     (value) => {
-      form.mutators.insert(field.name, 0, value)
+      form.mutators.insert(field.name, 0, value);
     },
-    [field.name, form.mutators]
-  )
+    [field.name, form.mutators],
+  );
 
   const moveArrayItem = React.useCallback(
     (result) => {
-      if (!result.destination || !form) return
-      const name = result.type
+      if (!result.destination || !form) return;
+      const name = result.type;
       form.mutators.move(
         name,
         result.source.index,
-        result.destination.index
-      )
+        result.destination.index,
+      );
     },
-    [form]
-  )
+    [form],
+  );
 
   const removeRelation = (index, field) => {
-    form.mutators.remove(field.name, index)
-  }
+    form.mutators.remove(field.name, index);
+  };
 
   return (
     <DragDropContext onDragEnd={moveArrayItem}>
@@ -65,22 +65,22 @@ const MultipleRelations = ({ input, field, form }) => {
             <RelationMenu open={visible}>
               <RelationMenuList>
                 {availableData.map((item) => {
-                  const props = field.itemProps(item)
+                  const props = field.itemProps(item);
                   return (
                     <RelationOption
                       // eslint-disable-next-line react/prop-types
                       key={props.key}
                       onClick={() => {
                         // eslint-disable-next-line react/prop-types
-                        addRelation(props.key)
-                        setVisible(false)
+                        addRelation(props.key);
+                        setVisible(false);
                       }}
                     >
                       { // eslint-disable-next-line react/prop-types
                         props.label
                       }
                     </RelationOption>
-                  )
+                  );
                 })}
               </RelationMenuList>
             </RelationMenu>
@@ -94,7 +94,7 @@ const MultipleRelations = ({ input, field, form }) => {
               <EmptyList>{field.noDataText}</EmptyList>
             )}
             {value.map((key, index) => {
-              const item = field.data.find((item) => field.itemProps(item).key === key)
+              const item = field.data.find((item) => field.itemProps(item).key === key);
               return (
                 <RelationListItem
                   item={item}
@@ -105,19 +105,19 @@ const MultipleRelations = ({ input, field, form }) => {
                   onRemove={removeRelation}
                   isDragDisabled={field.sortable === false || value.length <= 1}
                 />
-              )
+              );
             })}
             {provider.placeholder}
           </FormBody>
         )}
       </Droppable>
     </DragDropContext>
-  )
-}
+  );
+};
 
 MultipleRelations.propTypes = {
   input: PropTypes.shape({
-    value: PropTypes.any
+    value: PropTypes.any,
   }).isRequired,
   field: PropTypes.shape({
     itemProps: PropTypes.func,
@@ -125,25 +125,25 @@ MultipleRelations.propTypes = {
     noDataText: PropTypes.string,
     name: PropTypes.string,
     label: PropTypes.string,
-    sortable: PropTypes.bool
+    sortable: PropTypes.bool,
   }).isRequired,
   form: PropTypes.shape({
     mutators: PropTypes.shape({
       insert: PropTypes.func,
       move: PropTypes.func,
-      remove: PropTypes.func
-    })
-  }).isRequired
-}
+      remove: PropTypes.func,
+    }),
+  }).isRequired,
+};
 
-export default MultipleRelations
+export default MultipleRelations;
 
 const RelationListItem = ({
-  item, form, field, index, onRemove, isDragDisabled
+  item, form, field, index, onRemove, isDragDisabled,
 }) => {
   const handleRemove = React.useCallback(() => {
-    onRemove(index, field)
-  }, [form, field, index])
+    onRemove(index, field);
+  }, [form, field, index]);
 
   return (
     <Draggable
@@ -176,8 +176,8 @@ const RelationListItem = ({
         </ListItem>
       )}
     </Draggable>
-  )
-}
+  );
+};
 
 RelationListItem.propTypes = {
   index: PropTypes.number.isRequired,
@@ -186,22 +186,22 @@ RelationListItem.propTypes = {
     mutators: PropTypes.shape({
       insert: PropTypes.func,
       move: PropTypes.func,
-      remove: PropTypes.func
-    })
+      remove: PropTypes.func,
+    }),
   }).isRequired,
   form: PropTypes.shape({}).isRequired,
   item: PropTypes.shape({
     key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    label: PropTypes.string
+    label: PropTypes.string,
   }).isRequired,
   onRemove: PropTypes.func.isRequired,
-  isDragDisabled: PropTypes.bool.isRequired
-}
+  isDragDisabled: PropTypes.bool.isRequired,
+};
 
 const Placeholder = styled.span`
   opacity: 0.3;
   text-transform: italic;
-`
+`;
 
 const DragHandle = styled(({ ...styleProps }) => (
   <div {...styleProps}>
@@ -228,7 +228,7 @@ const DragHandle = styled(({ ...styleProps }) => (
   svg:last-child {
     opacity: 0;
   }
-`
+`;
 
 const EmptyList = styled.div`
   text-align: center;
@@ -239,7 +239,7 @@ const EmptyList = styled.div`
   padding: 0.75rem 0;
   font-size: var(--tina-font-size-2);
   font-weight: 500;
-`
+`;
 
 const ItemLabel = styled.label`
   margin: 0;
@@ -256,11 +256,11 @@ const ItemLabel = styled.label`
   padding: 0 0.5rem;
   pointer-events: none;
 
-  ${(props) => props.error &&
-    css`
+  ${(props) => props.error
+    && css`
       color: var(--tina-color-error) !important;
     `};
-`
+`;
 
 const DeleteButton = styled.button`
   text-align: center;
@@ -274,7 +274,7 @@ const DeleteButton = styled.button`
   &:hover {
     background-color: var(--tina-color-grey-2);
   }
-`
+`;
 
 const ListItem = styled.div`
   position: relative;
@@ -345,8 +345,8 @@ const ListItem = styled.div`
     }
   }
 
-  ${(p) => p.isDragging &&
-    css`
+  ${(p) => p.isDragging
+    && css`
       border-radius: var(--tina-radius-small);
       box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.12);
 
@@ -366,7 +366,7 @@ const ListItem = styled.div`
         }
       }
     `};
-`
+`;
 
 const RelationMenu = styled.div`
   min-width: 12rem;
@@ -385,18 +385,18 @@ const RelationMenu = styled.div`
   background-color: white;
   overflow: hidden;
   z-index: 100;
-  ${(props) => props.open &&
-    css`
+  ${(props) => props.open
+    && css`
       opacity: 1;
       pointer-events: all;
       transform: translate3d(0, 2.25rem, 0) scale3d(1, 1, 1);
     `};
-`
+`;
 
 const RelationMenuList = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 const RelationOption = styled.button`
   position: relative;
@@ -417,4 +417,4 @@ const RelationOption = styled.button`
   &:not(:last-child) {
     border-bottom: 1px solid #efefef;
   }
-`
+`;

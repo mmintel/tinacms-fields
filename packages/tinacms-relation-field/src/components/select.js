@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Select = ({
-  input, field, options, noDataText
+  input, field, options, noDataText,
 }) => (
   <SelectElement>
     <select
@@ -24,25 +24,25 @@ const Select = ({
       )}
     </select>
   </SelectElement>
-)
+);
 
 Select.propTypes = {
   noDataText: PropTypes.string.isRequired,
   input: PropTypes.shape({
     name: PropTypes.string,
     value: PropTypes.any,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
   }).isRequired,
   field: PropTypes.shape({
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
   }).isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     key: PropTypes.string,
-    label: PropTypes.string
-  })).isRequired
-}
+    label: PropTypes.string,
+  })).isRequired,
+};
 
-export default Select
+export default Select;
 
 const SelectElement = styled.div`
   display: block;
@@ -74,4 +74,4 @@ const SelectElement = styled.div`
       background-image: none;
     }
   }
-`
+`;

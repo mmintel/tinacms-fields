@@ -12,21 +12,13 @@
     "node": ">=8",
     "npm": ">=5"
   },
-  "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "build": "rollup -c \\$LERNA_ROOT_PATH/rollup.config.js",
-    "develop": "rollup -c \\$LERNA_ROOT_PATH/rollup.config.js -w",
-    "dev": "npm run develop",
-    "lint": "eslint src"
-  },
   "dependencies": {
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "^1.1.4"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1"
   },
   "peerDependencies": {
     "@tinacms/form-builder": "^0.3.0",

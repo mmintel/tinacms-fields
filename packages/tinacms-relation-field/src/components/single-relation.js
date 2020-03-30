@@ -1,19 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { FormHeader, FormBody, FieldLabel } from './form'
-import Select from './select'
+import { FormHeader, FormBody, FieldLabel } from './form';
+import Select from './select';
 
 const SingleRelation = ({ input, field }) => {
-  const options = field.data.map((item) => field.itemProps(item))
+  const options = field.data.map((item) => field.itemProps(item));
 
   const selectOptions = [
     {
       key: null,
-      label: '---'
+      label: '---',
     },
-    ...options
-  ]
+    ...options,
+  ];
 
   return (
     <>
@@ -29,8 +29,8 @@ const SingleRelation = ({ input, field }) => {
         />
       </FormBody>
     </>
-  )
-}
+  );
+};
 
 SingleRelation.propTypes = {
   input: PropTypes.shape({}).isRequired,
@@ -38,8 +38,8 @@ SingleRelation.propTypes = {
     label: PropTypes.string,
     noDataText: PropTypes.string,
     data: PropTypes.arrayOf(PropTypes.object),
-    itemProps: PropTypes.func
-  }).isRequired
-}
+    itemProps: PropTypes.func,
+  }).isRequired,
+};
 
-export default SingleRelation
+export default SingleRelation;

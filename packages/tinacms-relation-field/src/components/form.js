@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const FormBody = styled.div`
   margin-bottom: 1.5rem;
-`
+`;
 
 export const FormHeader = styled.div`
   position: relative;
@@ -10,7 +10,7 @@ export const FormHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.75rem;
-`
+`;
 
 export const FieldLabel = styled.label`
   margin: 0;
@@ -24,8 +24,8 @@ export const FieldLabel = styled.label`
   transition: all 85ms ease-out;
   text-align: left;
 
-  ${(props) => props.error &&
-    css`
+  ${(props) => props.error
+    && css`
       color: var(--tina-color-error) !important;
     `};
-`
+`;
