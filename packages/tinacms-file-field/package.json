@@ -1,6 +1,6 @@
 {
   "name": "tinacms-file-field",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Adds a file field to TinaCMS",
   "author": "mmintel",
   "license": "MIT",
@@ -13,20 +13,20 @@
     "npm": ">=5"
   },
   "dependencies": {
-    "styled-components": "^5.0.1",
-    "react-dropzone": "10.1.8"
+    "react-dropzone": "10.1.8",
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
-    "react-tinacms": "^0.9.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "react-tinacms": "^0.9.15"
   },
   "peerDependencies": {
-    "react-tinacms": "^0.9.15",
     "prop-types": "^15.5.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-tinacms": "^0.9.15",
     "tinacms": "^0.18.0"
   },
   "files": [
