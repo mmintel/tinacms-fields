@@ -11,7 +11,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "lerna exec --scope tinacms-* -- rollup -c \\$LERNA_ROOT_PATH/rollup.config.js",
-    "lint": "lerna exec -- eslint src -c \\$LERNA_ROOT_PATH/.eslintrc.js",
+    "lint": "lerna exec -- eslint src/**/*.js -c \\$LERNA_ROOT_PATH/.eslintrc.js",
     "predeploy": "lerna run --scope example build",
     "deploy": "gh-pages -d example/public",
     "develop": "lerna exec --stream --scope tinacms-* -- rollup -w -c \\$LERNA_ROOT_PATH/rollup.config.js & lerna exec --parallel --scope example -- gatsby develop",
