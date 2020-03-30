@@ -13,7 +13,7 @@ https://mintel.me/lets-create-a-relation-field-for-tinacms/
 
 
 ### With a single reference
-![Single]((https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-relation-field/docs/assets/example-single.gif))
+![Single]((https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-relation-field/docs/assets/example-single.gif)
 
 ## Install
 
