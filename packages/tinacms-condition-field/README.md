@@ -1,4 +1,4 @@
-# tinacms-condition-field [![Known Vulnerabilities](https://snyk.io/test/github/mmintel/tinacms-condition-field?targetFile=packages/tinacms-condition-field/package.json)(https://snyk.io/test/github/mmintel/tinacms-condition-field/badge.svg?targetFile=packages/tinacms-condition-field/package.json)][![NPM](https://img.shields.io/npm/v/tinacms-condition-field.svg)](https://www.npmjs.com/package/tinacms-condition-field)
+# tinacms-condition-field [![Known Vulnerabilities](https://snyk.io/test/github/mmintel/tinacms-condition-field?targetFile=packages/tinacms-condition-field/package.json)](https://snyk.io/test/github/mmintel/tinacms-condition-field/badge.svg?targetFile=packages/tinacms-condition-field/package.json)[![NPM](https://img.shields.io/npm/v/tinacms-condition-field.svg)](https://www.npmjs.com/package/tinacms-condition-field)
 
 > Adds a condition field to TinaCMS
 
