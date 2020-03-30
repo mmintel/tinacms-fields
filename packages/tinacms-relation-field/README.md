@@ -9,10 +9,11 @@ https://mintel.me/lets-create-a-relation-field-for-tinacms/
 
 ## Preview
 ### With multiple references
-![Markdown](docs/assets/example-multiple.gif)
+![Multiple](https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-relation-field/docs/assets/example-multiple.gif)
+
 
 ### With a single reference
-![Json](docs/assets/example-single.gif)
+![Single]((https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-relation-field/docs/assets/example-multiple.gif))
 
 ## Install
 
