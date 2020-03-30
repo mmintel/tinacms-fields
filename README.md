@@ -5,6 +5,7 @@
 ## Fields
 * [tinacms-condition-field](packages/tinacms-condition-field)
 * [tinacms-relation-field](packages/tinacms-relation-field)
+* [tinacms-file-field](packages/tinacms-file-field)
 
 ## Example
 You can clone this repository and play with the fields.
