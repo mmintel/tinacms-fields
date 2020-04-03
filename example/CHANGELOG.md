@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/mmintel/tinacms-fields/compare/example@1.2.0...example@1.2.1) (2020-04-03)
+
+
+### Bug Fixes
+
+* regenerator runtime err ([4ebe40d](https://github.com/mmintel/tinacms-fields/commit/4ebe40d9b6a80e8e80fccb798bc9d314c9d6209f))
+
+
+
+
+
 # 1.2.0 (2020-04-03)
 
 
