@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2020-04-03)
+
+
+
+# 1.1.0 (2020-03-30)
+
+
+### Features
+
+* adds a file field ([c9afd7f](https://github.com/mmintel/tinacms-fields/commit/c9afd7f526b8680f317f17502236413da058119e))
+
+
+
+## 1.0.4 (2020-03-30)
+
+
+
+## 1.0.3 (2020-03-29)
+
+
+
+## 1.0.1 (2020-03-29)
+
+
+### Bug Fixes
+
+* pass multiple option ([d89288e](https://github.com/mmintel/tinacms-fields/commit/d89288e560d32a939511864a7757773580e75178))
+
+
+
+
+
 # [1.1.0](https://github.com/mmintel/tinacms-fields/compare/v1.0.4...v1.1.0) (2020-03-30)
 
 
