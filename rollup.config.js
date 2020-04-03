@@ -51,6 +51,7 @@ export default formats.map((format) => ({
         '@babel/preset-env',
         '@babel/preset-react',
       ],
+      plugins: ['@babel/plugin-transform-runtime'],
     }),
     resolve(),
     commonjs(),
