@@ -2,6 +2,9 @@
 
 > Adds a file field to TinaCMS
 
+## Article
+If you want to read more in depth walk through to how this file field works, checkout my article here: https://mintel.me/how-to-add-a-file-upload-to-your-gatsby-site/
+
 ## Preview
 ![Example](https://raw.githubusercontent.com/mmintel/tinacms-fields/master/packages/tinacms-file-field/docs/assets/example.gif)
 

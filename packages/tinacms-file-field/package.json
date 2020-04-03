@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "react-tinacms": "^0.9.15",
-    "react-dropzone": "10.1.8",
+    "react-dropzone": "10.2.1",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
