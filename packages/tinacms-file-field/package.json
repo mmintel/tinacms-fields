@@ -13,20 +13,19 @@
     "npm": ">=5"
   },
   "dependencies": {
+    "react-tinacms": "^0.9.15",
     "react-dropzone": "10.1.8",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1",
-    "react-tinacms": "^0.9.15"
+    "react-scripts": "^3.4.1"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-tinacms": "^0.9.15",
     "tinacms": "^0.18.0"
   },
   "files": [
