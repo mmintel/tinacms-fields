@@ -43,6 +43,7 @@ export default formats.map((format) => ({
   plugins: [
     external(),
     babel({
+      runtimeHelpers: true,
       exclude: [
         'node_modules/**',
         '../../node_modules/**',
