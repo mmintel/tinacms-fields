@@ -12,17 +12,7 @@ import { FormHeader, FormBody, FieldLabel } from './form';
 
 const MultipleRelations = ({ input, field, form }) => {
   const [visible, setVisible] = React.useState(false);
-  const [availableData, setAvailableData] = React.useState(field.data);
   const value = input.value || [];
-
-  React.useEffect(() => {
-    setAvailableData(field.data);
-  }, [field.data]);
-
-  React.useEffect(() => {
-    const newAvailableData = field.data.filter((i) => !value.includes(i.key));
-    setAvailableData(newAvailableData);
-  }, [value]);
 
   const addRelation = React.useCallback(
     (value) => {
@@ -52,7 +42,7 @@ const MultipleRelations = ({ input, field, form }) => {
     <DragDropContext onDragEnd={moveArrayItem}>
       <FormHeader>
         <FieldLabel>{field.label}</FieldLabel>
-        { !!availableData.length && (
+        { !!field.data.length && (
           <>
             <IconButton
               primary
@@ -64,7 +54,7 @@ const MultipleRelations = ({ input, field, form }) => {
             </IconButton>
             <RelationMenu open={visible}>
               <RelationMenuList>
-                {availableData.map((item) => {
+                {field.data.filter((item) => !value.includes(field.itemProps(item).key)).map((item) => {
                   const props = field.itemProps(item);
                   return (
                     <RelationOption
