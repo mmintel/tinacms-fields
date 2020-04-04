@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/mmintel/tinacms-fields/compare/example@1.2.3...example@1.3.0) (2020-04-04)
+
+
+### Features
+
+* adds filtering ([09e3734](https://github.com/mmintel/tinacms-fields/commit/09e37345c7b4b7794df44db18f3934bf564804bf))
+
+
+
+
+
 ## [1.2.3](https://github.com/mmintel/tinacms-fields/compare/example@1.2.2...example@1.2.3) (2020-04-04)
 
 
