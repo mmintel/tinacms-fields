@@ -22,6 +22,11 @@ const editPageForm = {
       label: 'Slug',
     },
     {
+      name: 'frontmatter.related',
+      component: 'pages',
+      label: 'Related Pages',
+    },
+    {
       name: 'frontmatter.file',
       component: 'file',
       description: 'This is a pdf upload field',

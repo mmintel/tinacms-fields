@@ -17,7 +17,18 @@ export const onClientEntry = () => {
       key: page.id,
       label: page.frontmatter.title,
     }),
+    noDataText: 'No pages created',
+  }]);
+
+  relationField.install([{
+    name: 'pages',
+    hook: usePages,
+    itemProps: (page) => ({
+      key: page.id,
+      label: page.frontmatter.title,
+    }),
     sortable: true,
+    multiple: true,
     noDataText: 'No pages created',
   }]);
 
