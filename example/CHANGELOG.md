@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/mmintel/tinacms-fields/compare/example@1.2.2...example@1.2.3) (2020-04-04)
+
+
+### Bug Fixes
+
+* correct types ([494bcde](https://github.com/mmintel/tinacms-fields/commit/494bcde41e977780bf4135db483dbc4f1edb1a12))
+* unknown element ([6646e19](https://github.com/mmintel/tinacms-fields/commit/6646e198fa820d85d4f3e31f1c364420a23fdf99))
+* wrong filtering ([7e342fc](https://github.com/mmintel/tinacms-fields/commit/7e342fcc0621978b956d7ef2e08d81462e0287ae))
+
+
+
+
+
 ## [1.2.2](https://github.com/mmintel/tinacms-fields/compare/example@1.2.1...example@1.2.2) (2020-04-03)
 
 **Note:** Version bump only for package example

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/mmintel/tinacms-fields/compare/tinacms-relation-field@1.2.2...tinacms-relation-field@1.2.3) (2020-04-04)
+
+
+### Bug Fixes
+
+* multiple option not passed correctly ([791fc0d](https://github.com/mmintel/tinacms-fields/commit/791fc0d8f4408238d119881d78928d4d99e482d8))
+* unknown element ([6646e19](https://github.com/mmintel/tinacms-fields/commit/6646e198fa820d85d4f3e31f1c364420a23fdf99))
+* wrong filtering ([7e342fc](https://github.com/mmintel/tinacms-fields/commit/7e342fcc0621978b956d7ef2e08d81462e0287ae))
+
+
+
+
+
 ## [1.2.2](https://github.com/mmintel/tinacms-fields/compare/tinacms-relation-field@1.2.1...tinacms-relation-field@1.2.2) (2020-04-03)
 
 **Note:** Version bump only for package tinacms-relation-field
