@@ -3,6 +3,7 @@ title: tinacms-condition-field
 slug: /condition
 showContent: true
 test: It works!!
+language: en
 ---
 # tinacms-condition-field
 

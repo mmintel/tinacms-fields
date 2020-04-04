@@ -3,6 +3,7 @@ title: tinacms-file-field
 slug: /file
 showContent: true
 test: It works!!
+language: de
 ---
 # tinacms-file-field
 

@@ -1,6 +1,7 @@
 ---
 title: tinacms-relation-field
 slug: /relation
+language: de
 ---
 # tinacms-relation-field
 

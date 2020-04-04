@@ -27,6 +27,11 @@ const editPageForm = {
       label: 'Related Pages',
     },
     {
+      name: 'frontmatter.link',
+      component: 'local-page',
+      label: 'Local page link',
+    },
+    {
       name: 'frontmatter.file',
       component: 'file',
       description: 'This is a pdf upload field',

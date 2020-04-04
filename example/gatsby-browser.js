@@ -21,6 +21,17 @@ export const onClientEntry = () => {
   }]);
 
   relationField.install([{
+    name: 'local-page',
+    hook: usePages,
+    itemProps: (page) => ({
+      key: page.id,
+      label: page.frontmatter.title,
+    }),
+    filter: (item, values) => item.frontmatter.language === values.rawFrontmatter.language,
+    noDataText: 'No pages created',
+  }]);
+
+  relationField.install([{
     name: 'pages',
     hook: usePages,
     itemProps: (page) => ({

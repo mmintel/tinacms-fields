@@ -13,6 +13,12 @@ import { FormHeader, FormBody, FieldLabel } from './form';
 const MultipleRelations = ({ input, field, form }) => {
   const [visible, setVisible] = React.useState(false);
   const value = input.value || [];
+  let { data } = field;
+  const { values } = form.getState();
+
+  if (field.filter) {
+    data = data.filter((item) => field.filter(item, values));
+  }
 
   const addRelation = React.useCallback(
     (value) => {
@@ -42,7 +48,7 @@ const MultipleRelations = ({ input, field, form }) => {
     <DragDropContext onDragEnd={moveArrayItem}>
       <FormHeader>
         <FieldLabel>{field.label}</FieldLabel>
-        { !!field.data.length && (
+        { !!data.length && (
           <>
             <IconButton
               primary
@@ -54,7 +60,7 @@ const MultipleRelations = ({ input, field, form }) => {
             </IconButton>
             <RelationMenu open={visible}>
               <RelationMenuList>
-                {field.data.filter((item) => !value.includes(field.itemProps(item).key)).map((item) => {
+                {data.filter((item) => !value.includes(field.itemProps(item).key)).map((item) => {
                   const props = field.itemProps(item);
                   return (
                     <RelationOption
@@ -80,11 +86,11 @@ const MultipleRelations = ({ input, field, form }) => {
       <Droppable droppableId={field.name} type={field.name}>
         {(provider) => (
           <FormBody ref={provider.innerRef}>
-            {field.data.length === 0 && (
+            {data.length === 0 && (
               <EmptyList>{field.noDataText}</EmptyList>
             )}
             {value.map((key, index) => {
-              const item = field.data.find((item) => field.itemProps(item).key === key);
+              const item = data.find((item) => field.itemProps(item).key === key);
               return (
                 <RelationListItem
                   item={field.itemProps(item)}
@@ -116,6 +122,7 @@ MultipleRelations.propTypes = {
     name: PropTypes.string,
     label: PropTypes.string,
     sortable: PropTypes.bool,
+    filter: PropTypes.func,
   }).isRequired,
   form: PropTypes.shape({
     mutators: PropTypes.shape({
@@ -123,6 +130,7 @@ MultipleRelations.propTypes = {
       move: PropTypes.func,
       remove: PropTypes.func,
     }),
+    getState: PropTypes.func,
   }).isRequired,
 };
 

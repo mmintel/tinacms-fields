@@ -9,6 +9,7 @@ export default () => {
             id
             frontmatter {
               title
+              language
             }
           }
         }
