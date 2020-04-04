@@ -142,9 +142,11 @@ const Page = ({ data }) => {
 
 Page.propTypes = {
   data: PropTypes.shape({
-    navigation: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string,
-    })),
+    navigation: PropTypes.shape({
+      main: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string,
+      })),
+    }),
     page: PropTypes.shape({
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
