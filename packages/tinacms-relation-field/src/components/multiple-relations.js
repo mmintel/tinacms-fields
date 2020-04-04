@@ -97,7 +97,7 @@ const MultipleRelations = ({ input, field, form }) => {
               const item = field.data.find((item) => field.itemProps(item).key === key);
               return (
                 <RelationListItem
-                  item={item}
+                  item={field.itemProps(item)}
                   form={form}
                   field={field}
                   index={index}
