@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import SingleRelation from './single-relation';
 import MultipleRelations from './multiple-relations';
 
-const Relation = ({ multiple, ...props }) => {
-  if (multiple) {
+const Relation = (props) => {
+  if (props.field.multiple) {
     return <MultipleRelations {...props} />;
   }
 
@@ -13,11 +13,13 @@ const Relation = ({ multiple, ...props }) => {
 };
 
 Relation.defaultProps = {
-  multiple: false,
+  field: {},
 };
 
 Relation.propTypes = {
-  multiple: PropTypes.bool,
+  field: PropTypes.shape({
+    multiple: PropTypes.bool,
+  }),
 };
 
 export default Relation;
