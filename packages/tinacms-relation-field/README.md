@@ -103,3 +103,18 @@ or if you already registered the field with the `install` method:
   component: 'page'
 }
 ```
+
+you can even filter data:
+
+```js
+relationField.install([{
+  name: 'local-page',
+  hook: usePages,
+  itemProps: (page) => ({
+    key: page.id,
+    label: page.frontmatter.title,
+  }),
+  filter: (item, values) => item.frontmatter.language === values.rawFrontmatter.language,
+  noDataText: 'No pages created',
+}]);
+```
