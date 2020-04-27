@@ -10,7 +10,7 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "gatsby": "^2.19.7",
+    "gatsby": "^2.20.12",
     "gatsby-plugin-tinacms": "^0.1.28",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-tinacms-git": "^0.4.1",
