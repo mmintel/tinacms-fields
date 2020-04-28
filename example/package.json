@@ -15,7 +15,7 @@
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-tinacms-git": "^0.4.5",
     "gatsby-tinacms-json": "^0.8.12",
-    "gatsby-tinacms-remark": "^0.7.7",
+    "gatsby-tinacms-remark": "^0.7.11",
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-remark": "^2.6.53",
     "prismjs": "^1.19.0",

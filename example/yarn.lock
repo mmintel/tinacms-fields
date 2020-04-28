@@ -5057,10 +5057,10 @@ gatsby-tinacms-json@^0.8.12:
   dependencies:
     slash "^3.0.0"
 
-gatsby-tinacms-remark@^0.7.7:
-  version "0.7.9"
-  resolved "https://registry.yarnpkg.com/gatsby-tinacms-remark/-/gatsby-tinacms-remark-0.7.9.tgz#a60dbb871c529083e9cd4952c8edd6579edba183"
-  integrity sha512-AYxvmjYmvNn7CaNOJ+j2bwi/SOXmxIubLq3T8Hxe/HNOoWoyzW70ijZ5k/etOv3ja6WZ3pkcgXl/lFKt6x6AaA==
+gatsby-tinacms-remark@^0.7.11:
+  version "0.7.13"
+  resolved "https://registry.yarnpkg.com/gatsby-tinacms-remark/-/gatsby-tinacms-remark-0.7.13.tgz#f8d5d0caa4c21e4a11138e58a561cb982ed903fd"
+  integrity sha512-qjnenbG038OUkP4XP7cXGVsLCk66imox5emU4Z2Tn4czHzmBGqIlhFooWyO9o6W9jzi06rBwu8BDDMfGJ3jy0g==
   dependencies:
     gray-matter "^4.0.2"
     js-yaml "^3.13.1"
