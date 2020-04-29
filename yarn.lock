@@ -8830,11 +8830,11 @@ gatsby-tinacms-remark@^0.7.11:
     slash "^3.0.0"
 
 gatsby-transformer-json@^2.2.26:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-2.3.1.tgz#1415920c891f6b02a0118d43c6682e9e87f57835"
-  integrity sha512-iOXdbVRHjlhvWZ6sdPGmezZTwIXXsz8o3YT3/YrBobiYfwvgpGk5r/zrbyunv/ofscfduPg+veHW4lY52rw9Vg==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-2.4.0.tgz#06947c1e133a8c97e7b59be233703e193dfb79fd"
+  integrity sha512-bzpollwUs+b2vR8MpQnNnQ7UqW3a9iaPyUXnyLFALKe5POkc1b0FYlr4rt4V87n4wqiNsVgis2JM042ox7yfBA==
   dependencies:
-    "@babel/runtime" "^7.8.7"
+    "@babel/runtime" "^7.9.2"
     bluebird "^3.7.2"
 
 gatsby-transformer-remark@^2.6.53:
