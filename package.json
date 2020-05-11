@@ -33,7 +33,7 @@
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.4",
-    "eslint": "^5.0.1",
+    "eslint": "^7.0.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-config-standard-react": "^6.0.0",
