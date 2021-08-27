@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useCMS } from 'tinacms';
+import { useCMS } from '@tinacms/toolkit';
 import styled, { css } from 'styled-components';
 import FileUpload from './file-upload';
 
