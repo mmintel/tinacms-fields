@@ -4,10 +4,10 @@ import styled, { css } from 'styled-components';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import {
   AddIcon, DragIcon, ReorderIcon, TrashIcon,
-} from '@tinacms/icons';
+} from '@tinacms/toolkit';
 import {
   IconButton,
-} from '@tinacms/styles';
+} from '@tinacms/toolkit';
 import { FormHeader, FormBody, FieldLabel } from './form';
 
 const MultipleRelations = ({ input, field, form }) => {

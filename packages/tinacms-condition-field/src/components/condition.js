@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import { FieldsBuilder } from '@tinacms/form-builder';
+import { FieldsBuilder } from '@tinacms/toolkit';
 
 const Condition = ({ input, field, form }) => {
   const nestedFields = field.fields(input.value);

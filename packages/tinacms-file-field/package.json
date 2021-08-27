@@ -22,10 +22,10 @@
     "react-scripts": "^3.4.1"
   },
   "peerDependencies": {
+    "@tinacms/toolkit": "^0.52.3",
     "prop-types": "^15.5.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "tinacms": "^0.18.0"
   },
   "files": [
     "dist"

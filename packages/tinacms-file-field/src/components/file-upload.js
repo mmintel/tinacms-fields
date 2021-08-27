@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
-import { IconButton } from '@tinacms/styles';
-import { TrashIcon } from '@tinacms/icons';
+import { IconButton } from '@tinacms/toolkit';
+import { TrashIcon } from '@tinacms/toolkit';
 import AttachmentIcon from './attachment-icon';
 
 const DropArea = styled.div`
